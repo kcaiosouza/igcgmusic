@@ -6,10 +6,12 @@ import Link from 'next/link';
 import { api } from '@/services/api';
 import { convertSecondsToString } from '@/utils/convertSecondsToString';
 import Image from 'next/image';
+import { usePlayer } from '@/contexts/playerContext';
 
 const rubik = Rubik({ subsets: ['latin'] })
 
 export default function Home({isDark, musics}) {
+  const {playList} = usePlayer();
   return (
     <main className={`${styles.indexContainer} ${rubik.className} bg-[#FFF]`}>
       <header className={styles.mainHeader}>
@@ -54,7 +56,7 @@ export default function Home({isDark, musics}) {
                     </td>
                     <td className='w-[50px]'>{music.time_as_string}</td>
                     <td className='w-[50px]'>
-                      <button type="button" onClick={() => {}}>
+                      <button type="button" onClick={() => playList(musics, index)}>
                         like                        
                       </button>
                     </td>
