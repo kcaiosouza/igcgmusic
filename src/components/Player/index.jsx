@@ -157,7 +157,8 @@ export function Player() {
                 onEnded={handleEpisodesEnded}
                 onPlay={() => setPlayingState(true)}
                 onPause={() => setPlayingState(false)}
-                onSeeked={setupProgressListener}
+                // onSeeked={setupProgressListener}
+                onLoadedMetadata={setupProgressListener}
               />
             </div>
           </>

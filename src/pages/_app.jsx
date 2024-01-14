@@ -3,19 +3,21 @@ import { Rubik } from 'next/font/google'
 
 import { Nav } from '@/components/Nav'
 import { Player } from '@/components/Player'
-import { PlayerContextProvider, usePlayer } from '@/contexts/playerContext'
+import { PlayerContextProvider } from '@/contexts/playerContext'
+import { ThemeContextProvider } from '@/contexts/themeContext'
 
 const rubik = Rubik({ subsets: ['latin'] })
 export default function App({ Component, pageProps }) {
-  const {isPlaying} = usePlayer();
   return (
     <>
       <PlayerContextProvider>
-        <main className={`appContainer ${isPlaying ? "bg-[#2E2E20]" : "bg-[#5B6143]"} ${rubik.className}`}>
-          <Nav page={Component}/>
-          <Player/>
-          <Component {...pageProps} isDark={true}/>
-        </main>
+        <ThemeContextProvider>
+          <main className={`appContainer bg-greenPlaying ${rubik.className}`}>
+            <Nav page={Component}/>
+            <Player/>
+            <Component {...pageProps} />
+          </main>
+        </ThemeContextProvider>
       </PlayerContextProvider>
     </>
   )

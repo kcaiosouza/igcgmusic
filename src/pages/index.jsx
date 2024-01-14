@@ -7,17 +7,19 @@ import { api } from '@/services/api';
 import { convertSecondsToString } from '@/utils/convertSecondsToString';
 import Image from 'next/image';
 import { usePlayer } from '@/contexts/playerContext';
+import { useTheme } from '@/contexts/themeContext';
 
 const rubik = Rubik({ subsets: ['latin'] })
 
-export default function Home({isDark, musics}) {
-  const {playList} = usePlayer();
+export default function Home({musics}) {
+  const { playList, musicList } = usePlayer();
+  const { isDark, toggleTheme } = useTheme();
   return (
-    <main className={`${styles.indexContainer} ${rubik.className} bg-[#FFF]`}>
+    <main className={`${styles.indexContainer} ${musicList.length > 0 ? "h-[calc(100vh-6px)] rounded-tl-[30px] rounded-bl-[30px]" : "h-screen"} ${rubik.className} ${isDark ? "bg-[#151515]" : "bg-[#FCFCFF]"}`}>
       <header className={styles.mainHeader}>
-        <h1 className='text-[#2D2E37]'>Início</h1>
+        <h1 className={`${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"} `}>Início</h1>
         <div className='flex items-center'>
-          {isDark ? <FaMoon/> : <FaRegMoon/>}
+          {isDark ? <FaMoon onClick={toggleTheme}/> : <FaRegMoon onClick={toggleTheme}/>}
           <input/>
           <IoSearch/>
         </div>
@@ -65,7 +67,6 @@ export default function Home({isDark, musics}) {
               })}
             </tbody>
           </table>
-          {/* {musics.map(music => {return <p key={music.id}>aqui tem uma musica ai calica</p>})} */}
         </div>
 
         <div>
