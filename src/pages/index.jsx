@@ -8,12 +8,15 @@ import { convertSecondsToString } from '@/utils/convertSecondsToString';
 import Image from 'next/image';
 import { usePlayer } from '@/contexts/playerContext';
 import { useTheme } from '@/contexts/themeContext';
+import { useAuth } from '@/contexts/authContext';
 
 const rubik = Rubik({ subsets: ['latin'] })
 
 export default function Home({musics}) {
   const { playList, musicList } = usePlayer();
   const { isDark, toggleTheme } = useTheme();
+  const { user } = useAuth();
+  console.log(user)
   return (
     <main className={`${styles.indexContainer} ${musicList.length > 0 ? "h-[calc(100vh-6px)] rounded-tl-[30px] rounded-bl-[30px]" : "h-screen"} ${rubik.className} ${isDark ? "bg-[#151515]" : "bg-[#FCFCFF]"}`}>
       <header className={styles.mainHeader}>
