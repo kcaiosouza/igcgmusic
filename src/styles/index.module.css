@@ -43,3 +43,93 @@
     background-position: center;
     margin: 15px 50px;
 }
+
+.bar1 {
+    background-color: #FFF;
+    width: 5px;
+    border-radius: 8px;
+    height: 8px;
+    animation: bar_audio_1 .7s infinite linear;
+}
+.bar2 {
+    background-color: #FFF;
+    width: 5px;
+    border-radius: 8px;
+    height: 18px;
+    animation: bar_audio_2 .9s infinite linear;
+}
+.bar3 {
+    background-color: #FFF;
+    width: 5px;
+    border-radius: 8px;
+    height: 12px;
+    animation: bar_audio_3 .8s infinite linear;
+}
+
+.topThumbButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.lineTableMusics:hover .hoverThumb {
+    visibility: visible;
+    background-color: rgba(0,0,0,0.5);
+    transition: all .3s;
+}
+
+.hoverThumb {
+    position: absolute;
+    border-radius: 8px;
+    display: flex;
+    visibility: hidden;
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.0);
+    backdrop-filter: blur(2px);
+}
+
+
+
+@keyframes bar_audio_1 {
+    0% {
+        height: 8px;
+    }
+    50% {
+        height: 18px;
+    }
+    100% {
+        height: 9px;
+    }
+
+}
+@keyframes bar_audio_2 {
+    0% {
+        height: 18px;
+    }
+    50% {
+        height: 8px;
+    }
+    100% {
+        height: 17px;
+    }
+
+}
+@keyframes bar_audio_3 {
+    0% {
+        height: 12px;
+    }
+    25% {
+        height: 18px;
+    }
+    50% {
+        height: 12px;
+    }
+    100% {
+        height: 8px;
+    }
+
+}

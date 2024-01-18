@@ -11,7 +11,7 @@ export function PlayerContextProvider({ children }) {
 
   function play(episode) {
     setMusicList([episode]);
-    setCurrentMusicIndex(0);
+    setCurrentMusicIndex(9999);
     setIsPlaying(true);
   }
 
@@ -39,7 +39,7 @@ export function PlayerContextProvider({ children }) {
 
   function clearPlayerState() {
     setMusicList([]);
-    setCurrentMusicIndex(0);
+    setCurrentMusicIndex(9999);
   }
 
   const hasPrevious = currentMusicIndex > 0;
