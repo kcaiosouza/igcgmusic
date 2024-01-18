@@ -2,7 +2,7 @@ import styles from '@/styles/Index.module.css'
 import { Rubik } from 'next/font/google'
 import { IoSearch } from "react-icons/io5";
 import { FaRegMoon, FaMoon } from "react-icons/fa";
-import { FaPlay } from "react-icons/fa6";
+import { FaPlay, FaRegHeart, FaHeart } from "react-icons/fa6";
 import Link from 'next/link';
 import { api } from '@/services/api';
 import { convertSecondsToString } from '@/utils/convertSecondsToString';
@@ -22,9 +22,11 @@ export default function Home({musics}) {
       <header className={styles.mainHeader}>
         <h1 className={`${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"} `}>Início</h1>
         <div className='flex items-center'>
-          {isDark ? <FaMoon onClick={toggleTheme} color='#FCFCFF'/> : <FaRegMoon onClick={toggleTheme}/>}
-          <input/>
-          <IoSearch/>
+          {isDark ? <FaMoon onClick={toggleTheme} className='mr-3 cursor-pointer' color='#FCFCFF'/> : <FaRegMoon onClick={toggleTheme} className='mr-3 cursor-pointer'/>}
+          <div className={styles.inputUser}>
+            <input className={styles.input} placeholder='Pesquisar...'/>
+            <IoSearch color='#2D2E375d'/>
+          </div>
         </div>
       </header>
 
@@ -35,50 +37,50 @@ export default function Home({musics}) {
           <span>TOP ARTISTAS</span>
         </div>
 
-        <div className='px-14'>
-          <span className='text-[21px] font-semibold text-[#2D2E37]'>10 Recomendações</span>
+        <div className='px-14 flex flex-col gap-2'>
+          <span className={`text-[21px] font-semibold ${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"}`}>10 Recomendações</span>
           <table className='w-full'>
             <tbody>
               {musics.map((music, index) =>{
                 return (
-                  <tr key={music.id} className={`${styles.lineTableMusics} items-center`}>
-                    <td style={{width: 72}}>
-                      <div className={styles.hoverThumb}>
-                        {currentMusicIndex == index && isPlaying ? 
-                          <div className={styles.topThumbButtons}>
-                            <div className={styles.bar1}/>
-                            <div className={styles.bar2}/>
-                            <div className={styles.bar3} />
-                          </div> :
-                          <FaPlay
-                           size={21}
-                           color='#fff'
-                           className='cursor-pointer drop-shadow-[0_5px_5px_rgba(255,255,255,0.3)]'
-                           onClick={() => playList(musics, index)}
-                          /> } 
-                      </div>
-                      <Image 
-                        width={120}
-                        height={120}
-                        src={music.album_image}
-                        alt={music.name}
-                        className='object-cover rounded-lg'
+                  <tr key={music.id} className={`${styles.lineTableMusics} h-[83px]`}>
+                      <td style={{width: 72}}>
+                        <div className={styles.hoverThumb}>
+                          {currentMusicIndex == index && isPlaying ? 
+                            <div className={`${styles.topThumbButtons} shadow-lg`}>
+                              <div className={styles.bar1}/>
+                              <div className={styles.bar2}/>
+                              <div className={styles.bar3} />
+                            </div> :
+                            <FaPlay
+                            size={21}
+                            color='#fff'
+                            className='cursor-pointer drop-shadow-[0_5px_5px_rgba(255,255,255,0.3)]'
+                            onClick={() => playList(musics, index)}
+                            /> } 
+                        </div>
+                        <Image 
+                          width={120}
+                          height={120}
+                          src={music.album_image}
+                          alt={music.name}
+                          className='object-cover rounded-lg shadow-lg'
+                          
+                        />
+                      </td>
+                      <td>
+                        <div className='flex flex-col pl-5'>
+                          <Link href={`/music/${music.id}`} className={`text-[18px] ${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"} font-bold leading-[15px]`}>{music.name}</Link>
+                          <span className={`font-medium text-[12px] ${isDark ? "text-[rgba(255,255,255,0.6)]" : "text-[rgba(0,0,0,0.6)]"}`}><Link href={`/author/${music.author_id}`}>{music.author_name}</Link> • <Link href={`/album/${music.album_id}`}>{music.album_name}</Link></span>
+                        </div>
                         
-                      />
-                    </td>
-                    <td>
-                      <div className='flex flex-col pl-5'>
-                        <Link href={`/music/${music.id}`} className={`text-[18px] ${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"} font-bold leading-[15px]`}>{music.name}</Link>
-                        <span className={`font-medium text-[12px] ${isDark ? "text-[rgba(255,255,255,0.6)]" : "text-[rgba(0,0,0,0.6)]"}`}><Link href={`/author/${music.author_id}`}>{music.author_name}</Link> • <Link href={`/album/${music.album_id}`}>{music.album_name}</Link></span>
-                      </div>
-                      
-                    </td>
-                    <td className='w-[50px]'>{music.time_as_string}</td>
-                    <td className='w-[50px]'>
-                      <button type="button" onClick={() => {console.log("liked")}}>
-                        like                        
-                      </button>
-                    </td>
+                      </td>
+                      <td className={`w-[50px] h-[72px] font-bold ${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"}`}>{music.time_as_string}</td>
+                      <td className='w-[50px] h-[72px] text-end'>
+                        <button type="button" onClick={() => {console.log("liked")}}>
+                          {isDark ? <FaRegHeart color='#FCFCFF' size={20}/> : <FaRegHeart color='#2D2E37' size={20}/>}
+                        </button>
+                      </td>
                   </tr>
                 )
               })}
