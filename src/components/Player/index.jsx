@@ -137,16 +137,18 @@ export function Player() {
               </div>
             </div>
             <div className="bg-[#464B36] w-[200px] h-[50px] rounded-b-3xl flex items-center gap-1">
-              <span className="w-[60px]">{convertSecondsToString(progress).slice(3)}</span>
-              <Slider 
-                max={music.time}
-                value={progress}
-                onChange={handleSeek}
-                trackStyle={{ backgroundColor: '#04d361' }}
-                railStyle={{ backgroundColor: '#B3CDBE'}}
-                handleStyle={{ borderColor: '#04d361', borderWidth: 4}}
-              />
-              <span className="w-[60px]">{convertSecondsToString(music.time).slice(3)}</span>
+              <span className="w-[45px] text-[12px] font-medium text-center text-[#FCFCFF]">{convertSecondsToString(progress).slice(3)}</span>
+              <div className="flex flex-row w-[110px]">
+                <Slider 
+                  max={music.time}
+                  value={progress}
+                  onChange={handleSeek}
+                  // trackStyle={{ backgroundColor: '#04d361' }}
+                  // railStyle={{ backgroundColor: '#B3CDBE'}}
+                  // handleStyle={{ borderColor: '#04d361', borderWidth: 4}}
+                />
+              </div>
+              <span className="w-[45px] text-[12px] font-medium text-center text-[#FCFCFF]">{convertSecondsToString(music.time).slice(3)}</span>
 
               <audio
                 id="audio-player"

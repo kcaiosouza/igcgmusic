@@ -2,12 +2,16 @@ import { BsHouse, BsFillHouseFill, BsGear, BsGearFill } from "react-icons/bs";
 import { BiMusic, BiSolidMusic } from "react-icons/bi";
 import { FaRegFolder, FaFolder, FaRegHeart, FaHeart } from "react-icons/fa6";
 import { RiUser3Line, RiUser3Fill } from "react-icons/ri";
+import { usePlayer } from "@/contexts/playerContext";
 
 import Link from "next/link";
 
 import styles from '@/styles/nav.module.css'
+import { useAuth } from "@/contexts/authContext";
 
 export function Nav({page}) {
+  const { musicList } = usePlayer();
+  const { user } = useAuth();
   return (
     <nav className={styles.navigationContainer}>
       <div className={styles.divLogo}>
@@ -30,9 +34,14 @@ export function Nav({page}) {
             <BiSolidMusic size={26} color="#FFFFFF"/>
           </Link>
             :
-          <Link href="/playingNow">
-            <BiMusic size={26} color="#FFFFFF"/>
-          </Link>
+            musicList.length > 0 ? 
+              <Link href="/playingNow">
+                <BiMusic size={26} color="#FFFFFF"/>
+              </Link>
+                :
+              <div className="cursor-not-allowed">
+                <BiMusic size={26} color="#FFFFFF"/>
+              </div>
         }
         
         {page.name == "Liked" ?
@@ -40,9 +49,14 @@ export function Nav({page}) {
             <FaHeart size={26} color="#FFFFFF"/>
           </Link>
             :
-          <Link href="/liked">
-            <FaRegHeart size={26} color="#FFFFFF"/>
-          </Link>
+            user.length > 0 ?
+              <Link href="/liked">
+                <FaRegHeart size={26} color="#FFFFFF"/>
+              </Link>
+                :
+              <div className="cursor-not-allowed">
+                <FaRegHeart size={26} color="#FFFFFF"/>
+              </div>
         }
         
         {page.name == "Playlists" ?

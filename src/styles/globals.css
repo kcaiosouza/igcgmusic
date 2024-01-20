@@ -2,32 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
 main.appContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+/* Personalizando o RC-Slider */
+
+.rc-slider-rail {
+  background-color: rgba(255, 255, 255, .55) !important;
+}
+
+.rc-slider-track {
+  background-color: #FFFFFF !important;
+}
+
+.rc-slider:hover .rc-slider-track {
+  background-color: #04d361 !important;
+}
+
+.rc-slider-handle {
+  border-color: #FFFFFF !important;
+  visibility: hidden !important;
+  cursor: default !important;
+}
+
+.rc-slider:hover .rc-slider-handle {
+  visibility: visible !important;
+
+}
+
+.rc-slider-handle.rc-slider-handle-dragging {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+.rc-slider-handle:active {
+  box-shadow: 0 0 0 0 transparent !important;
 }

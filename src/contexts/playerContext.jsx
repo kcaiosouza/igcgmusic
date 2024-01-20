@@ -43,7 +43,7 @@ export function PlayerContextProvider({ children }) {
   }
 
   const hasPrevious = currentMusicIndex > 0;
-  const hasNext = isShuffling || (currentMusicIndex + 1) < currentMusicIndex.length;
+  const hasNext = isShuffling || (currentMusicIndex + 1) < musicList.length;
 
   function playNext() {
     if(isShuffling) {
