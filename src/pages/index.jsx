@@ -112,16 +112,16 @@ export default function Home({musics, authors}) {
                         <Image 
                           width={120}
                           height={120}
-                          src={music.album_image}
-                          alt={music.name}
+                          src={music.album.image_url}
+                          alt={music.title}
                           className='object-cover rounded-lg shadow-lg'
                           
                         />
                       </td>
                       <td>
                         <div className='flex flex-col pl-5'>
-                          <Link href={`/music/${music.id}`} className={`text-[18px] ${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"} font-bold leading-[15px]`}>{music.name}</Link>
-                          <span className={`font-medium text-[12px] ${isDark ? "text-[rgba(255,255,255,0.6)]" : "text-[rgba(0,0,0,0.6)]"}`}><Link href={`/author/${music.author_id}`}>{music.author_name}</Link> • <Link href={`/album/${music.album_id}`}>{music.album_name}</Link></span>
+                          <Link href={`/music/${music.slug}`} className={`text-[18px] ${isDark ? "text-[#FCFCFF]" : "text-[#2D2E37]"} font-bold leading-[15px]`}>{music.title}</Link>
+                          <span className={`font-medium text-[12px] ${isDark ? "text-[rgba(255,255,255,0.6)]" : "text-[rgba(0,0,0,0.6)]"}`}><Link href={`/author/${music.artist.slug}`}>{music.artist.name}</Link> • <Link href={`/album/${music.album.slug}`}>{music.album.title}</Link></span>
                         </div>
                         
                       </td>
@@ -147,26 +147,12 @@ export default function Home({musics, authors}) {
 }
 
 export const getStaticProps = async () => {
-  const { data : musicData } = await api.get('music/all')
-  const { data : authorData } = await api.get('author/all')
+  const { data : musicData } = await api.get('songs/all')
+  const { data : authorData } = await api.get('artists')
   // const { data : musicPlaylist } = await api.get('')
 
   const musics = musicData.map(music => {
-    return {
-      id: music.id,
-      album_id: music.album_id,
-      album_name: music.album_name,
-      album_image: music.album_image,
-      name: music.name,
-      author_id: music.author_id,
-      author_name: music.author_name,
-      file_url: music.file_url,
-      time: music.time,
-      lyrics: music.lyrics,
-      chords: music.chords,
-      language: music.language,
-      time_as_string: (convertSecondsToString(Number(music.time))).startsWith("00:") ? convertSecondsToString(Number(music.time)).slice(3) : convertSecondsToString(Number(music.time)),
-    }
+    return music
   })
 
   const authors = authorData.map(author => {
