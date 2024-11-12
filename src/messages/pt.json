@@ -1,0 +1,8 @@
+{
+  "HomePage": {
+    "title": "Olá mundo!"
+  },
+  "PlayerComponent": {
+    "text1": "Tocando agora:"
+  }
+}
