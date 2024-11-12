@@ -19,3 +19,73 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Personalizando o RC-Slider */
+
+.music-slider .rc-slider-rail {
+  background-color: rgba(255, 255, 255, .55) !important;
+  border-radius: 0;
+}
+
+.music-slider .rc-slider-track {
+  background-color: #FFFFFF !important;
+  border-radius: 0;
+}
+
+.rc-slider.music-slider:hover .rc-slider-track {
+  background-color: #04d361 !important;
+}
+
+.music-slider .rc-slider-handle {
+  border-color: #FFFFFF !important;
+  visibility: hidden !important;
+  cursor: default !important;
+}
+
+.rc-slider.music-slider:hover .rc-slider-handle {
+  visibility: visible !important;
+
+}
+
+.music-slider .rc-slider-handle.rc-slider-handle-dragging {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+.music-slider .rc-slider-handle:active {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+.rc-slider.music-slider {
+  transform: translateY(-6px);
+}
+
+.volume-slider .rc-slider-rail {
+  background-color: rgba(255, 255, 255, .55) !important;
+}
+
+.volume-slider .rc-slider-track {
+  background-color: #FFFFFF !important;
+}
+
+.rc-slider.volume-slider:hover .rc-slider-track {
+  background-color: #04d361 !important;
+}
+
+.volume-slider .rc-slider-handle {
+  border-color: #FFFFFF !important;
+  visibility: hidden !important;
+  cursor: default !important;
+}
+
+.rc-slider.volume-slider:hover .rc-slider-handle {
+  visibility: visible !important;
+
+}
+
+.volume-slider .rc-slider-handle.rc-slider-handle-dragging {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+.volume-slider .rc-slider-handle:active {
+  box-shadow: 0 0 0 0 transparent !important;
+}
