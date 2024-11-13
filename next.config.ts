@@ -6,7 +6,10 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    remotePatterns: [{hostname: 'github.com', protocol: 'https'}]
+    remotePatterns: [
+      {hostname: 'github.com', protocol: 'https'},
+      {hostname: 'igcgcloud.netlify.app', protocol: 'https'}
+    ]
   }
 };
 
