@@ -1,6 +1,7 @@
 {
   "HomePage": {
-    "title": "Hello world!"
+    "pageTitle": "Home",
+    "searchPlaceholder": "Search"
   },
   "PlayerComponent": {
     "text1": "Now playing:"

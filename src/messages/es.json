@@ -1,6 +1,7 @@
 {
   "HomePage": {
-    "title": "Hola mundo!"
+    "pageTitle": "Inicio",
+    "searchPlaceholder": "Buscar"
   },
   "PlayerComponent": {
     "text1": "Reproduciendo ahora:"

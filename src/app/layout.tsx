@@ -37,9 +37,9 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <main className="flex overflow-hidden">
+          <main className="flex overflow-hidden bg-[#5B6143]">
             <NavBar/>
-            <section className="flex w-full flex-col relative h-[100dvh] overflow-hidden">
+            <section className="flex w-full flex-col relative h-[99.15dvh] overflow-hidden my-1 rounded-l-[20px]">
               {children}
               <Player/>
             </section>
