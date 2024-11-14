@@ -34,7 +34,7 @@ export default function NavBar() {
   return (
     <nav className={styles.navigationContainer}>
       <div className={styles.divLogo}>
-        <Image src="/shortLogoIGCGMusic.png" priority alt="Logo" width={100} height={100}/>
+        <Image src="/shortLogoIGCGMusic.png" priority alt="Logo" width={256} height={256}/>
       </div>
 
       <div className={styles.navIcons}>

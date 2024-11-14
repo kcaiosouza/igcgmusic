@@ -37,11 +37,11 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <main className="flex overflow-hidden bg-[#5B6143]">
+          <main className="flex overflow-hidden bg-[#2E2E20]">
             <NavBar/>
-            <section className="flex w-full flex-col relative h-[99.15dvh] overflow-hidden my-1 rounded-l-[20px]">
+            <Player/>
+            <section className="flex w-full relative pageContent items-center justify-center overflow-hidden my-1 rounded-l-[20px]">
               {children}
-              <Player/>
             </section>
           </main>
         </NextIntlClientProvider>

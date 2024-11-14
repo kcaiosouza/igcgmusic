@@ -20,6 +20,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.pageContent {
+  height: calc(100dvh - 0.5rem);
+}
+
 /* Personalizando o RC-Slider */
 
 .music-slider .rc-slider-rail {
@@ -37,14 +41,14 @@ body {
 }
 
 .music-slider .rc-slider-handle {
+  transition: opacity .3s ease-in-out;
   border-color: #FFFFFF !important;
-  visibility: hidden !important;
+  opacity: 0 !important;
   cursor: default !important;
 }
 
 .rc-slider.music-slider:hover .rc-slider-handle {
-  visibility: visible !important;
-
+  opacity: 1 !important;
 }
 
 .music-slider .rc-slider-handle.rc-slider-handle-dragging {
@@ -53,10 +57,6 @@ body {
 
 .music-slider .rc-slider-handle:active {
   box-shadow: 0 0 0 0 transparent !important;
-}
-
-.rc-slider.music-slider {
-  transform: translateY(-6px);
 }
 
 .volume-slider .rc-slider-rail {
@@ -72,13 +72,14 @@ body {
 }
 
 .volume-slider .rc-slider-handle {
+  transition: opacity .3s ease-in-out;
   border-color: #FFFFFF !important;
-  visibility: hidden !important;
+  opacity: 0 !important;
   cursor: default !important;
 }
 
 .rc-slider.volume-slider:hover .rc-slider-handle {
-  visibility: visible !important;
+  opacity: 1 !important;
 
 }
 

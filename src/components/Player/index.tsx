@@ -19,48 +19,48 @@ import {
 } from "react-icons/io5";
 
 import 'rc-slider/assets/index.css';
+import CardMusic from "./cardMusic";
 
 export default function Player() {
   const t = useTranslations("PlayerComponent");
   return(
-    <section className="flex flex-col w-full h-20 backdrop-blur-md bg-white/5 absolute left-0 bottom-0">
-      <Slider 
-        className="music-slider"
-        max={100}
-        value={50}
-        // onChange={(e) => {console.log(e)}}
-      />
-      <div className="flex flex-row flex-[1] items-center justify-between -translate-y-[5px]">
-        <div className="flex-[1] flex items-center pl-3 gap-2">
-          <Image src="https://github.com/kcaiosouza.png" width={56} height={56} alt="Capa do CD" className="aspect-square w-14 h-14 rounded-md"/>
-          <div className="">
-            <h3>Titulo da música</h3>
-            <span className="font-sans text-sm font-extralight">CD Tal • Fulano</span>
+    <section className="flex flex-col w-[324px] max-w-[324px] bg-[#2E2E20] justify-center">
+      <section className="pl-4 pt-3 flex flex-col gap-2">
+        <h3 className="font-semibold text-xl">Fila de Músicas</h3>
+        <div className="w-full h-auto overflow-scroll gap-1 flex flex-row">
+          <CardMusic/>
+          <CardMusic/>
+          <CardMusic/>
+          <CardMusic/>
+          <CardMusic/>
+          <CardMusic/>
+        </div>
+      </section>
+      <section className="w-full flex flex-[1] flex-col items-center justify-center">
+        <div className="bg-[#5B6143] w-[80%] h-[346px] rounded-3xl flex flex-col items-center justify-between p-6">
+          <div className="flex flex-col items-center">
+            <Image src="https://github.com/kcaiosouza.png" alt="Capa CD" width={164} height={164} className="rounded-2xl mb-2"/>
+            <span>Nome da Música</span>
+            <span>Nome do Artista</span>
           </div>
-          <div className="p-2">
-            <IoHeartOutline size={20} className="hover:scale-110 duration-300 cursor-pointer"/>
+          <div className="flex flex-row items-center justify-center gap-1">
+            <IoRepeat size={23}/>
+            <IoPlaySkipBack size={23}/>
+            <IoPlay size={32} className="translate-x-[1px]"/>
+            <IoPlaySkipForward size={23}/>
+            <IoShuffle size={23}/>
+          </div>
+          <div className="flex flex-row w-full px-14 items-center justify-center gap-2">
+            <IoVolumeHigh size={23}/>
+            <Slider className="volume-slider"/>
           </div>
         </div>
-        <div className="flex justify-center items-center gap-3 flex-[1]">
-          <IoRepeat size={20}/>
-          <IoPlaySkipBack size={20}/>
-          <div className="rounded-full w-9 h-9 border-2 border-white flex items-center justify-center">
-            <IoPlay size={25} className="translate-x-[1.5px]"/>
-          </div>
-          <IoPlaySkipForward size={20}/>
-          <IoShuffle size={20}/>
+        <div className="flex flex-row items-center justify-center gap-2 px-2 bg-[#5B6143] w-[64%] h-11 rounded-b-2xl">
+          <span>01:15</span>
+          <Slider className="music-slider"/>
+          <span>15:15</span>
         </div>
-        <div className="flex-[1] flex justify-end items-center gap-3 pr-3">
-          <IoVolumeHigh size={20}/>
-          <Slider 
-            className="volume-slider w-24"
-            max={1}
-            value={1}
-            step={0.01}
-            // onChange={(e) => {console.log(e)}}
-          />
-        </div>
-      </div>
+      </section>
     </section>
   )
 }
