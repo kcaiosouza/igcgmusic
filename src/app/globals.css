@@ -28,12 +28,10 @@ body {
 
 .music-slider .rc-slider-rail {
   background-color: rgba(255, 255, 255, .55) !important;
-  border-radius: 0;
 }
 
 .music-slider .rc-slider-track {
   background-color: #FFFFFF !important;
-  border-radius: 0;
 }
 
 .rc-slider.music-slider:hover .rc-slider-track {
@@ -53,10 +51,12 @@ body {
 
 .music-slider .rc-slider-handle.rc-slider-handle-dragging {
   box-shadow: 0 0 0 0 transparent !important;
+  opacity: 1 !important;
 }
 
 .music-slider .rc-slider-handle:active {
   box-shadow: 0 0 0 0 transparent !important;
+  opacity: 1 !important;
 }
 
 .volume-slider .rc-slider-rail {
@@ -80,13 +80,14 @@ body {
 
 .rc-slider.volume-slider:hover .rc-slider-handle {
   opacity: 1 !important;
-
 }
 
 .volume-slider .rc-slider-handle.rc-slider-handle-dragging {
   box-shadow: 0 0 0 0 transparent !important;
+  opacity: 1 !important;
 }
 
 .volume-slider .rc-slider-handle:active {
   box-shadow: 0 0 0 0 transparent !important;
+  opacity: 1 !important;
 }
