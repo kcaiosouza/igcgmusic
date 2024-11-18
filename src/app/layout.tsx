@@ -5,6 +5,7 @@ import { getLocale, getMessages } from 'next-intl/server';
 import Player from "@/components/Player";
 import NavBar from "@/components/NavBar";
 import "./globals.css";
+import { PlayerContextProvider } from "@/contexts/playerContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,6 +38,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
+        <PlayerContextProvider>
           <main className="flex overflow-hidden bg-[#2E2E20]">
             <NavBar/>
             <Player/>
@@ -44,6 +46,7 @@ export default async function RootLayout({
               {children}
             </section>
           </main>
+        </PlayerContextProvider>
         </NextIntlClientProvider>
       </body>
     </html>
