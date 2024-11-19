@@ -78,12 +78,13 @@ export default function Player() {
          onMouseLeave={handleMouseUp}
          onMouseUp={handleMouseUp}
         >
-          <CardMusic/>
-          <CardMusic/>
-          <CardMusic/>
-          <CardMusic/>
-          <CardMusic/>
-          <CardMusic/>
+          <CardMusic title="O Amor Jamais Acabará" time={400} author="Públio Alves" imageUrl="https://github.com/kcaiosouza.png"/>
+          <CardMusic title="O Amor Jamais Acabará" time={400} author="Públio Alves" imageUrl="https://github.com/kcaiosouza.png"/>
+          <CardMusic title="O Amor Jamais Acabará" time={400} author="Públio Alves" imageUrl="https://github.com/kcaiosouza.png"/>
+          <CardMusic title="O Amor Jamais Acabará" time={400} author="Públio Alves" imageUrl="https://github.com/kcaiosouza.png"/>
+          <CardMusic title="O Amor Jamais Acabará" time={400} author="Públio Alves" imageUrl="https://github.com/kcaiosouza.png"/>
+          <CardMusic title="O Amor Jamais Acabará" time={400} author="Públio Alves" imageUrl="https://github.com/kcaiosouza.png"/>
+          <CardMusic title="O Amor Jamais Acabará" time={400} author="Públio Alves" imageUrl="https://github.com/kcaiosouza.png"/>
         </div>
       </section>
       <section className="w-full flex flex-[1] flex-col items-center justify-center">

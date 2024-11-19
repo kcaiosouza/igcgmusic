@@ -49,5 +49,5 @@ export const usePlayer = () => {
     throw new Error('usePlayer must be used within a PlayerContextProvider');
   }
 
-  return playerContext
+  return playerContext;
 }
