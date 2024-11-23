@@ -118,7 +118,7 @@ export default function Player() {
 
     // Fazer o download do áudio e armazenar no cache
     console.log(`Baixando e armazenando áudio: ${url}`);
-    const response = await fetch(url, {
+    const response = await fetch(`http://localhost:4444/proxy?url=${url}`, {
       method: "GET",
       headers: {
         "content-type": "audio/mp3",
@@ -149,7 +149,7 @@ export default function Player() {
       const cachedResponse = await cache.match(track.file_url);
       if (!cachedResponse) {
         console.log(`Pré-carregando: ${track.title}`);
-        const response = await fetch(track.file_url, {
+        const response = await fetch(`http://localhost:4444/proxy?url=${track.file_url}`, {
           method: "GET",
           headers: {
             "content-type": "audio/mp3",
